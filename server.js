@@ -1,8 +1,16 @@
-var gzippo = require('gzippo');
-var express = require('express');
-//var expressLogger = require('express-logger');
-var app = express();
+//Install express server
+const express = require('express');
+const path = require('path');
 
-  //app.use(expressLogger({path: "log.txt"}));
-  app.use(gzippo.staticGzip("" + __dirname + "/dist"));
-  app.listen(process.env.PORT || 5000);
+const app = express();
+
+// Serve only the static files form the dist directory
+app.use(express.static(__dirname + '/dist'));
+
+app.get('/*', function (req, res) {
+
+    res.sendFile(path.join(__dirname + '/dist/index.html'));
+});
+
+// Start the app by listening on the default Heroku port
+app.listen(process.env.PORT || 5000);
