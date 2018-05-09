@@ -1,0 +1,15 @@
+{
+  "name": "bowling-pass-tag-app",
+  "scripts": {
+  },
+  "env": {
+  },
+  "formation": {
+  },
+  "addons": [
+
+  ],
+  "buildpacks": [
+
+  ]
+}
